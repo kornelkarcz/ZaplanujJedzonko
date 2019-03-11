@@ -1,28 +1,38 @@
 package pl.coderslab.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Recipe {
-
     private int id;
     private String name;
     private String ingredients;
     private String description;
-    private java.sql.Date created;
-    private java.sql.Date updated;
+    private Timestamp created;
+    private Timestamp updated;
     private int preparationTime;
     private String preparation;
-    private Admins adminId;
-
-    @Override
-    public String toString() {
-        return "Recipe[id=" + id + ", name='" + name + ", ingredients='" + ingredients + ", description='" + description
-                + ", created='" + created + ", updated='" + updated + ", preparationTime=" + preparationTime +
-                ", preparation=" + preparation + ", admins=" + adminId + "]";
-
-    }
+    private Admins admins;
 
     public Recipe() {
+    }
+
+    public Recipe(int id, String name, String ingredients, String description, int preparationTime, String preparation, Admins admins) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.description = description;
+        this.preparationTime = preparationTime;
+        this.preparation = preparation;
+        this.admins = admins;
+    }
+
+    public Recipe(String name, String ingredients, String description, int preparationTime, String preparation, Admins admins) {
+        this.name = name;
+        this.ingredients = ingredients;
+        this.description = description;
+        this.preparationTime = preparationTime;
+        this.preparation = preparation;
+        this.admins = admins;
     }
 
     public int getId() {
@@ -31,19 +41,6 @@ public class Recipe {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-    public Recipe(int id, String name, String ingredients, String description, java.sql.Date created, java.sql.Date updated, int preparationTime, String preparation, Admins adminId) {
-        this.id = id;
-        this.name = name;
-        this.ingredients = ingredients;
-        this.description = description;
-        this.created = created;
-        this.updated = updated;
-        this.preparationTime = preparationTime;
-        this.preparation = preparation;
-        this.adminId = adminId;
     }
 
     public String getName() {
@@ -70,20 +67,19 @@ public class Recipe {
         this.description = description;
     }
 
-
-    public java.sql.Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(java.sql.Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-    public java.sql.Date getUpdated() {
+    public Timestamp getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(Timestamp updated) {
         this.updated = updated;
     }
 
@@ -104,18 +100,25 @@ public class Recipe {
     }
 
     public Admins getAdmins() {
-        return adminId;
+        return admins;
     }
 
-    public void setAdmins(Admins adminId) {
-        this.adminId = adminId;
+    public void setAdmins(Admins admins) {
+        this.admins = admins;
     }
-    public Recipe(int id, String name, String ingredients, String description, int preparationTime, String preparation) {
-        this.id = id;
-        this.name = name;
-        this.ingredients = ingredients;
-        this.description = description;
-        this.preparationTime = preparationTime;
-        this.preparation = preparation;
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", description='" + description + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", preparationTime=" + preparationTime +
+                ", preparation='" + preparation + '\'' +
+                ", admins=" + admins +
+                '}';
     }
 }

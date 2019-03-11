@@ -1,18 +1,22 @@
 package pl.coderslab.model;
 
-import javax.xml.crypto.Data;
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Plan {
+
     private int id;
     private String name;
     private String description;
-    private Date created;
-    private Admins adminId;
+    private Timestamp created;
+    private Admins admins;
 
-
-    public Plan() {
+    public Plan(String name, String description, Admins admins) {
+        this.name = name;
+        this.description = description;
+        this.admins = admins;
     }
+
+    public Plan(){};
 
     public int getId() {
         return id;
@@ -20,17 +24,6 @@ public class Plan {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Plan(String name, String description, Admins adminId) {
-        this.name = name;
-        this.description = description;
-        this.adminId = adminId;
-    }
-
-    public Plan(String name, String description) {
-        this.name = name;
-        this.description = description;
     }
 
     public String getName() {
@@ -49,20 +42,20 @@ public class Plan {
         this.description = description;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-    public Admins getAdminId() {
-        return adminId;
+    public Admins getAdmins() {
+        return admins;
     }
 
-    public void setAdminId(Admins adminId) {
-        this.adminId = adminId;
+    public void setAdmins(Admins admins) {
+        this.admins = admins;
     }
 
     @Override
@@ -72,7 +65,7 @@ public class Plan {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", created=" + created +
-                ", adminId=" + adminId +
+                ", admins=" + admins +
                 '}';
     }
 }
