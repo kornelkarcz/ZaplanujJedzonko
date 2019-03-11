@@ -1,42 +1,7 @@
-<img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400">
+ZaplanujJedzonko
 
-### Przygotowanie – pliki css/js.
+The ZaplanujJedzonko project enables end user to create a foodplan for the whole week and add new recipes. The end user, in order to manage the food schedule, should firstly register and the login to the application. Then he or she may add, create, edit and delete his or her plans and recipes.
 
-Pliki **css** możemy umieścić w katalogu 
-````src/main/webapp/css````
-przy powyższej lokalizacji w plikach szablonów załączamy je w następujący sposób:
-````
-  <link href='<c:url value="/css/style.css"/>' rel="stylesheet" type="text/css">
-```` 
+The project was developed during Java bootcamp in a three person team.
 
-### Dane do połączenia z bazą:
-
-Plik znajduje się w naszym projekcie w katalogu **src/main/webapp/META-INF**.
-
-`Zmodyfikuj znajdujące się w nim dane dotyczące połączenia.`
-
-### W przypadku wystąpienia błędu:
-````
-javax.naming.NameNotFoundException: Name [jdbc/scrumlab] is not bound in this Context. Unable to find [jdbc].
-````
-wykonujemy następujące kroki:
-
-Wybierz z górnego menu File –> Project Structure...
-
-W okienku, które się pojawi, kliknij z lewej strony w Facets następnie **Web**.
-
-Pojawi się okno, w którym kliknij **Add Application Server specific descriptor...**.
-
-![Screenshot](readme-img/context_03.png)
-
-Wybierz z listy serwer **Tomcat** i zaakceptuj przyciskiem **OK**.
-
-![Screenshot](readme-img/context_04.png)
-
-Na liście pojawi się plik **Tomcat Context Descriptor**. Potwierdź przyciskiem **OK**.
-
-![Screenshot](readme-img/context_05.png)
-
-Plik znajduje się w naszym projekcie w katalogu **src/main/webapp/META-INF**.
-
-`Zmodyfikuj znajdujące się w nim dane dotyczące połączenia.`
+The project was developed using mainly Java.
