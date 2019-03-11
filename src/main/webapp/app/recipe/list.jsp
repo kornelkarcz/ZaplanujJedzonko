@@ -3,7 +3,7 @@
 
 <%@include file="../../header.jspf" %>
 
-<section class="dashboard-section"> 
+<section class="dashboard-section">
     <div class="row dashboard-nowrap">
 
         <%@include file="../../sidepanel.jsp" %>
