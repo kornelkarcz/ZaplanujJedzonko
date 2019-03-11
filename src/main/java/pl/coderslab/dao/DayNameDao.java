@@ -1,6 +1,7 @@
 package pl.coderslab.dao;
 
-import pl.coderslab.model.Day;
+import pl.coderslab.exception.NotFoundException;
+import pl.coderslab.model.DayName;
 import pl.coderslab.utils.DbUtil;
 
 import java.sql.Connection;
@@ -12,38 +13,32 @@ import java.util.List;
 
 public class DayNameDao {
 
-    //Zapytania SQL
-    private static final String FIND_ALL_DAYS_QUERY = "SELECT * FROM day_name;";
+    private static final String FIND_ALL_DAYNAME_QUERY = "SELECT * FROM day_name";
 
 
-    /**
-    * Return all days
-    *
-    * @return
-    * */
-
-    public List<Day> findAll() {
-        List<Day> dayList = new ArrayList<>();
-
+    public static List<DayName> findAll() {
+        List<DayName> dayNameList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(FIND_ALL_DAYS_QUERY);
+             PreparedStatement statement = connection.prepareStatement(FIND_ALL_DAYNAME_QUERY);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
-                Day dayToAdd = new Day();
-                dayToAdd.setId(resultSet.getInt("id"));
-                dayToAdd.setName(resultSet.getString("name"));
-                dayToAdd.setOrder(resultSet.getInt("order"));
-                dayList.add(dayToAdd);
-
+                DayName dayNameToAdd = new DayName();
+                dayNameToAdd.setId(resultSet.getInt("id"));
+                dayNameToAdd.setName(resultSet.getString("name"));
+                dayNameToAdd.setOrder(resultSet.getInt("order"));
+                dayNameList.add(dayNameToAdd);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return dayList;
+        return dayNameList;
 
     }
 
+    @Override
+    public String toString() {
+        return "DayNameDao{}";
+    }
 }
